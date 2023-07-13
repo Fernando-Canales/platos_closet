@@ -1,4 +1,4 @@
-.. _platos_closet:
+.. _detection:
 
 Correlation Functions
 =====================
