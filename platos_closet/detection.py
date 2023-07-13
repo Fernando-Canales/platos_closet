@@ -4,10 +4,10 @@ class planets:
     """_Defines a set of parameters for planets in our solar system_
 
     Args:
-        name (_type_): _name of the planet_
-        depth (_type_): _transit depth in ppm_
-        duration (_type_): _transit duration in hours_
-        number (_type_): _number of transits_
+        name (str): _name of the planet_
+        depth (int): _transit depth in ppm_
+        duration (int): _transit duration in hours_
+        number (int): _number of transits_
     """
     def __init__(self, name, depth, duration, number=3):
         """
@@ -36,9 +36,14 @@ class planets:
         return nsr
     
     def is_detectable(self, nsr, nsr_plato = 80):
-        """
-        nsr (int): _int value from .noise_level function_
+        """_Function lets user know if object is detectable
+
+        Args:
+            nsr (int): _int value from .noise_level function_
         
+        Returns:
+            print statement of: 'Detectable planet' or 
+            'Non detectable planet'
         """
         if nsr > nsr_plato:
             return print('Detectable planet')
