@@ -1,9 +1,9 @@
 .. _detection:
 
-Correlation Functions
+Detection Functions
 =====================
 
-Function to perform correlations.
+Function to see if a planet is detectable
 
 .. automodule:: detection
    :members:
