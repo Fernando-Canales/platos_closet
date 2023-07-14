@@ -1,51 +1,74 @@
 import numpy as np
 
-class planets:
-    """_Defines a set of parameters for planets in our solar system_
+class Planet:
+    """
+    Defines a set of parameters for planets in our solar system.
 
     Args:
-        name (str): _name of the planet_
-        depth (int): _transit depth in ppm_
-        duration (int): _transit duration in hours_
-        number (int): _number of transits_
+        name (str): Name of the planet.
+        depth (int): Transit depth in ppm.
+        duration (int): Transit duration in hours.
+        number (int): Number of transits.
     """
+
     def __init__(self, name, depth, duration, number=3):
         """
-        name (str): _name of the planet_
-        depth (int): _transit depth in parts per million(ppm)_
-        duration (int): _transit duration in hours_
-        number (int): _number of transits_
+        Initializes a planet object.
+
+        Args:
+            name (str): Name of the planet.
+            depth (int): Transit depth in parts per million (ppm).
+            duration (int): Transit duration in hours.
+            number (int): Number of transits.
         """
-        super().__init__()
-        
         self.name = name
         self.depth = depth
         self.duration = duration
         self.number = number
-        
+
     def noise_level(self, eta=7.1):
-        """_Function that implements equation 23 in Marchiori et al (2019) paper_
+        """
+        Calculates the noise level of the planet transit signal at detector level.
 
         Args:
-            eta (float, optional): _Statistical significance value adopted for PLATO_. Defaults to 7.1.
+            eta (float, optional): Statistical significance value adopted for PLATO.
+                Defaults to 7.1.
 
         Returns:
-            _nsr_: _noise level of the planet transit signal at detector level_
+            float: The noise level of the planet transit signal at detector level.
         """
         nsr = self.depth * np.sqrt(self.duration * self.number) / eta
         return nsr
-    
-    def is_detectable(self, nsr, nsr_plato = 80):
-        """_Function lets user know if object is detectable
+
+    def is_detectable(self, nsr, nsr_plato=34):
+        """
+        Determines if the planet is detectable based on the noise level.
 
         Args:
-            nsr (int): _int value from .noise_level function_
-        
+            nsr (float): Noise level of the planet transit signal at detector level.
+            nsr_plato (float, optional): Threshold noise level for detection.
+                Defaults to 34 ppm sqrt(hr).
+
         Returns:
-            print statement of: 'Detectable planet' or 
-            'Non detectable planet'
+            str: 'Detectable planet' or 'Non-detectable planet'.
         """
         if nsr > nsr_plato:
-            return print('Detectable planet')
+            return 'Detectable planet'
         else:
-            return print('Non detectable planet')
+            return 'Non-detectable planet'
+
+    def detectability_check(self):
+        """
+        Performs the detectability check for an array of planet data.
+
+        Args:
+            planets_data (list): List of tuples containing planet data
+                in the format (name, depth, duration).
+
+        Returns:
+            None. Prints the detection results on the screen.
+        """
+        nsr = self.noise_level()
+        detection_result = self.is_detectable(nsr)
+        print(f"{self.name}: {detection_result}")
+        
