@@ -13,7 +13,7 @@ setup(
  
 	author_email = "fernando.canales@obspm.fr",
  
-	description = "Package that tells you if a planet can be detected by PLATO space mission",
+	description = "Package that tells the user if a planet can be detected by PLATO space mission",
 
 	long_description= """ The Planet class requires the following arguments for initialization
 	- name (str): Name of the planet.
