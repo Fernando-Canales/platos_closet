@@ -84,38 +84,38 @@
 <h1>Quick start<a class="headerlink" href="#Quick-start" title="Permalink to this heading"></a></h1>
 <p>This tutorial gives a minimal example on how to use platos_closet</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First we import the main library</span>
-<span class="kn">import</span> <span class="nn">platos_closet</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># First we import the main library
+import platos_closet
 </pre></div>
 </div>
 </div>
 <p>Then we import the main class/module from the package</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">platos_closet.detection</span> <span class="kn">import</span> <span class="n">Planet</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from platos_closet.detection import Planet
 </pre></div>
 </div>
 </div>
 <p>Now we create a tuple to use platos_closet. In this tuple we provide the name of the planet, the transit depth of this planet in ppm and its transit duration in hours. For an Earth-like planet around a solar-like star, these values are 84 ppm and 13 hours, respectively.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">earth</span> <span class="o">=</span> <span class="n">Planet</span><span class="p">(</span><span class="s1">&#39;Earth&#39;</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>earth = Planet(&#39;Earth&#39;, 84, 13)
 </pre></div>
 </div>
 </div>
 <p>Now we check if an Earth-like planet could be detected by PLATO using the detectability_check module of platos_closet</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">earth</span><span class="o">.</span><span class="n">detectability_check</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>earth.detectability_check()
 </pre></div>
 </div>
 </div>
