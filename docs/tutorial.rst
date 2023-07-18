@@ -1,4 +1,4 @@
-.. _tutorials:
+.. _tutorial:
 
 Tutorial
 ========
@@ -11,5 +11,5 @@ create a transit signal strong enough to be detectable fro PLATO space mission.
     :caption: Tutorial
 
     tutorial/quick_start.ipynb
-    
+
 

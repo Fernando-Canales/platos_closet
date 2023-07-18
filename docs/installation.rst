@@ -12,8 +12,6 @@ To install ``platos_closet`` you just have to type from the terminal:
 
     $ pip install platos_closet
 
-.. code-block:: bash
-
 The only dependency of ``platos_closet`` is numpy. It will be installed 
 automathically after you install ``platos_closet``. However, if you already 
 have it, it would be useful to have its latest version. For doing that, you just
@@ -23,4 +21,3 @@ type
 
     $ pip install numpy --upgrade
 
-.. code-block:: bash
