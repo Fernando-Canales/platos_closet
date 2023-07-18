@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Detection Functions &mdash; platos_closet 1.0.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -10,16 +11,17 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Welcome to platos_closet’s documentation!" href="index.html" /> 
+    <link rel="next" title="Installation" href="installation.html" />
+    <link rel="prev" title="Platos Closet" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,13 +46,16 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Detection Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#detection.planets"><code class="docutils literal notranslate"><span class="pre">planets</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#detection.planets.is_detectable"><code class="docutils literal notranslate"><span class="pre">planets.is_detectable()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#detection.planets.noise_level"><code class="docutils literal notranslate"><span class="pre">planets.noise_level()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#detection.Planet"><code class="docutils literal notranslate"><span class="pre">Planet</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#detection.Planet.detectability_check"><code class="docutils literal notranslate"><span class="pre">Planet.detectability_check()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detection.Planet.is_detectable"><code class="docutils literal notranslate"><span class="pre">Planet.is_detectable()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detection.Planet.noise_level"><code class="docutils literal notranslate"><span class="pre">Planet.noise_level()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
 </ul>
 
         </div>
@@ -77,67 +82,87 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="detection-functions">
+  <section id="detection-functions">
 <span id="detection"></span><h1>Detection Functions<a class="headerlink" href="#detection-functions" title="Permalink to this heading"></a></h1>
 <p>Function to see if a planet is detectable</p>
 <span class="target" id="module-detection"></span><dl class="py class">
-<dt class="sig sig-object py" id="detection.planets">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">detection.</span></span><span class="sig-name descname"><span class="pre">planets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#detection.planets" title="Permalink to this definition"></a></dt>
-<dd><p>_Defines a set of parameters for planets in our solar <a href="#id1"><span class="problematic" id="id2">system_</span></a></p>
+<dt class="sig sig-object py" id="detection.Planet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">detection.</span></span><span class="sig-name descname"><span class="pre">Planet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#detection.Planet" title="Permalink to this definition"></a></dt>
+<dd><p>Defines a set of parameters for planets in our solar system.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>str</em>) – _name of the <a href="#id3"><span class="problematic" id="id4">planet_</span></a></p></li>
-<li><p><strong>depth</strong> (<em>int</em>) – _transit depth in <a href="#id5"><span class="problematic" id="id6">ppm_</span></a></p></li>
-<li><p><strong>duration</strong> (<em>int</em>) – _transit duration in <a href="#id7"><span class="problematic" id="id8">hours_</span></a></p></li>
-<li><p><strong>number</strong> (<em>int</em>) – _number of <a href="#id9"><span class="problematic" id="id10">transits_</span></a></p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Name of the planet.</p></li>
+<li><p><strong>depth</strong> (<em>int</em>) – Transit depth in ppm.</p></li>
+<li><p><strong>duration</strong> (<em>int</em>) – Transit duration in hours.</p></li>
+<li><p><strong>number</strong> (<em>int</em>) – Number of transits.</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="detection.planets.is_detectable">
-<span class="sig-name descname"><span class="pre">is_detectable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nsr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsr_plato</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">80</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#detection.planets.is_detectable" title="Permalink to this definition"></a></dt>
-<dd><p>_Function lets user know if object is detectable</p>
+<dt class="sig sig-object py" id="detection.Planet.detectability_check">
+<span class="sig-name descname"><span class="pre">detectability_check</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#detection.Planet.detectability_check" title="Permalink to this definition"></a></dt>
+<dd><p>Performs the detectability check for an array of planet data.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>nsr</strong> (<em>int</em>) – _int value from .noise_level <a href="#id11"><span class="problematic" id="id12">function_</span></a></p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>planets_data</strong> (<em>list</em>) – List of tuples containing planet data
+in the format (name, depth, duration).</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>‘Detectable planet’ or
-‘Non detectable planet’</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>print statement of</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None. Prints the detection results on the screen.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="detection.planets.noise_level">
-<span class="sig-name descname"><span class="pre">noise_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#detection.planets.noise_level" title="Permalink to this definition"></a></dt>
-<dd><p>_Function that implements equation 23 in Marchiori et al (2019) <a href="#id13"><span class="problematic" id="id14">paper_</span></a></p>
+<dt class="sig sig-object py" id="detection.Planet.is_detectable">
+<span class="sig-name descname"><span class="pre">is_detectable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nsr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsr_plato</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">34</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#detection.Planet.is_detectable" title="Permalink to this definition"></a></dt>
+<dd><p>Determines if the planet is detectable based on the noise level.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>eta</strong> (<em>float</em><em>, </em><em>optional</em>) – _Statistical significance value adopted for <a href="#id15"><span class="problematic" id="id16">PLATO_</span></a>. Defaults to 7.1.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nsr</strong> (<em>float</em>) – Noise level of the planet transit signal at detector level.</p></li>
+<li><p><strong>nsr_plato</strong> (<em>float</em><em>, </em><em>optional</em>) – Threshold noise level for detection.
+Defaults to 34 ppm sqrt(hr).</p></li>
+</ul>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>_noise level of the planet transit signal at detector <a href="#id17"><span class="problematic" id="id18">level_</span></a></p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>‘Detectable planet’ or ‘Non-detectable planet’.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>_nsr_</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="detection.Planet.noise_level">
+<span class="sig-name descname"><span class="pre">noise_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#detection.Planet.noise_level" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the noise level of the planet transit signal at detector level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eta</strong> (<em>float</em><em>, </em><em>optional</em>) – Statistical significance value adopted for PLATO.
+Defaults to 7.1.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The noise level of the planet transit signal at detector level.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 </dd></dl>
 
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to platos_closet’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Platos Closet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

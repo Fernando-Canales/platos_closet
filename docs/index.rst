@@ -17,9 +17,9 @@ representative for PLATO space mission. More details can be found in the `PLATO 
    :maxdepth: 2
    :caption: Contents:
 
-   detection.rst
-   installation.rst
-   tutorial.rst
+   detection
+   installation
+   tutorial
 
 
 
