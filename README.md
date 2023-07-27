@@ -12,8 +12,10 @@ platos_closet is a simple python package for telling if the planets of our solar
 
 [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
 [![made-with-sphinx-doc](https://img.shields.io/badge/Made%20with-Sphinx-1f425f.svg)](https://www.sphinx-doc.org/)
+[![A rectangular badge, half black half purple containing the text made at Code Astro](https://img.shields.io/badge/Made%20at-Code/Astro-blueviolet.svg)](https://semaphorep.github.io/codeastro/)
+
+
 [![PyPI version](https://badge.fury.io/py/platos-closet.svg)](https://badge.fury.io/py/platos-closet)
 [![PyPI downloads](https://img.shields.io/pypi/dm/platos-closet.svg)](https://pypistats.org/packages/platos-closet)
 
 [![DOI](https://zenodo.org/badge/665992280.svg)](https://zenodo.org/badge/latestdoi/665992280)
-
