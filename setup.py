@@ -7,7 +7,7 @@ with open('requirements.txt') as f:
 setup(
 	name = "platos_closet",
 
-	version = "1.1.1",
+	version = "1.1.2",
  
 	author = "Fernando Gutierrez Canales and John Hood",
  
