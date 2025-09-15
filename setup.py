@@ -7,7 +7,7 @@ with open('requirements.txt') as f:
 setup(
 	name = "platos_closet",
 
-	version = "1.1.2",
+	version = "1.1.3",
  
 	author = "Fernando Gutierrez Canales and John Hood",
  
@@ -20,23 +20,22 @@ setup(
   							PLATO'S CLOSET
  	===============================================================================
 
-  	## Overview
+  	Overview
 
 	Plato's Closet provides astronomers and researchers with tools to assess whether
 	planets of our Solar System meet the detection criteria for the PLATO (PLAnetary Transits and Oscillations of stars)
 	space mission. The package calculates noise levels and determines detectability based
 	on mission parameters.
 
-	## Features
+	Features
 
 	- Calculate noise levels for planetary transits
 	- Determine detectability based on PLATO mission specifications
 	- Simple, intuitive API with a Planet class
 	- Customizable detection thresholds
 
-	## Installation
+	Installation
 
-	```bash
 	pip install platos_closet
   	 """,
 	
