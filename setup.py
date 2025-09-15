@@ -7,7 +7,7 @@ with open('requirements.txt') as f:
 setup(
 	name = "platos_closet",
 
-	version = "1.1.3",
+	version = "1.1.4",
  
 	author = "Fernando Gutierrez Canales and John Hood",
  
@@ -38,6 +38,7 @@ setup(
 
 	pip install platos_closet
   	 """,
+	long_description_content_type="text/plain",
 	
  	license = "MIT",
  
