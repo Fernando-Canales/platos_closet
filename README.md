@@ -2,13 +2,13 @@
 
 # platos_closet
 
-**A friendly package to tell if a planet from our Solar System could be detected by PLATO**
+**A simple tool to check whether Solar System planets would be detectable by the PLATO space mission.**
 
 platos_closet is an Open-Source and simple Python package for telling if the planets of our solar system could be detected by PLATO space mission.
 
 For instructions and detailed documentation, start [right here](https://platos-closet.readthedocs.io/en/latest/)
 
-platos_closet aims to be a nice and easy way to tell if a planet could be detectable by the PLATO space mission given its noise requierements and taking into account the planet transit depth (how much light of the Star can be blocked by the planet when it transits).
+`platos_closet` is a lightweight Python package that estimates the detectability of planets based on PLATO’s noise requirements and the expected transit depth (the fraction of starlight blocked during a transit).  
 
 ## Installation
 Since platos_closet is a [PyPI package](https://pypi.org/project/platos-closet/), the easiest way to install it is to first update your system (specially NumPy since that is the only dependency needed for platos_closets)
